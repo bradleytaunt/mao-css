@@ -4,33 +4,178 @@ An ever expanding CSS guideline. There aren't enough of these already right?
 
 ## All files must have follow the guidelines:
 
-- Table of contents
+- [Table of contents](#table-of-contents)
 
-- Section titles
-    -- label sections with dollar signs for easy searches (ex. `$RESET`)
+- [Section Titles](#section-titles)
 
-- Never use IDs
+- [Never Use IDs](#never-use-ids)
 
-- Use `!important` tags on helper classes only (rules that you ALWAYS want to take over)
+- [!important Tags](#!important-tags)
 
-- No shorthand CSS (use background-color instead of just background)
+- [No Shorthand](#no-shorthand)
 
-- 5 return breaks between unrelated sections, 2 breaks if related
+- [Parameter Order](#parameter-order)
 
-- Style parameters are written alphabetically (ex. background -> border -> color -> display etc)
+- [Nesting Elements](#nesting-elements)
 
-- No over-nesting elements
+- [Commenting](#commenting)
 
-- Tag comments on specific components
+- [Refactor Before Reaction](#refactor-before-reaction)
 
-- All comments in block format
-
-- Quasi-qualify selectors (see the `.heading` class in the example below)
-
-- Always see if you can refactor before adding a pile-on solution
+- [Mixin and Variable Ideas](#mixin-and-variable-ideas)
 
 
-## Key variables / mixins:
+### Table of Contents
+Maintain a table of contents at the top of every stylesheet. This helps developers quickly glance through the sections of the file.
+
+Example:
+
+```
+/*------------------------------------*\
+    $CONTENTS
+\*------------------------------------*/
+/**
+ * CONTENTS............You’re reading it!
+ * RESET...............Set our reset defaults
+ * ELEMENTS............Configure our element defaults
+ */
+```
+
+### Section Titles
+Elements should be grouped into sections based on their function / relation to each other. Be sure to label sections with dollar signs for easier searches.
+
+Example:
+
+```
+/*------------------------------------*\
+    $RESET
+\*------------------------------------*/
+reset-box-model()
+    border: 0
+    margin: 0
+    padding: 0
+    outline: 0
+    
+.reset-borders
+	border: 0
+	outline: 0
+```
+
+**ProTip:** Related sections should have `2 return breaks` between them. Unrelated sections should have `5 return breaks`. Also remember to include quasi-qualify selectors.
+
+#### => Quasi-Qualify Selectors
+
+Example:
+
+```
+.main-widget
+	background-color: yellow
+	
+	/*h3*/.heading
+		padding: 10px
+```
+
+### Never Use IDs
+Goes without saying - stick to classes. This avoids super-specific selectors.
+
+### !important Tags
+Use `!important` tags on helper classes only (think of them as *trump* rules). This also avoids super-specific selectors.
+
+### No Shorthand
+**Good** Example:
+
+```
+background-color: #f8f8f8
+```
+
+**Bad** Example
+
+```
+background: #f8f8f8
+```
+
+### Parameter Order
+All style parameters should be structured alphabetically. This makes it much easier for developers to read through line by line.
+
+**Good** Example:
+
+```
+.header-widget
+	background-color: #f8f8f8
+	border: 1px solid #cccccc
+	color: #B8E986
+	display: inline-block
+	padding: 10px
+	width: 100%
+```
+
+**Bad** Example:
+
+```
+.header-widget
+	padding: 10px
+	width: 100%
+	background-color: #f8f8f8
+	display: inline-block
+	color: #B8E986
+	border: 1px solid #cccccc
+```
+
+### Nesting Elements
+It's best to just follow common sense nesting rules. The biggest problem to look out for is over-nesting elements. (Remember that super-specific selector problem mentioned before?)
+
+**Good** Example:
+
+```
+.header
+	border: 1px solid #f8f8f8
+	display: block
+	
+	ul
+		li
+			display: inline
+			margin-right: 10px
+		a
+			padding: 10px
+```
+
+**Bad** Example:
+
+```
+.header
+	border: 1px solid #f8f8f8
+	display: block
+	
+	ul
+		li
+			display: inline
+			margin-right: 10px
+			
+			a
+				padding: 10px
+```
+
+### Commenting
+All comments should be detailed and written in block format. You can never have too many comments :).
+
+Example:
+
+```
+/**
+ * This comment explains what this specific
+ * component will do and where it should be used.
+ * Detailed comments are great!
+ */
+.list-navigation
+	border-radius: 4px
+	display: inline
+```
+
+### Refactor Before Reaction
+Always take some time to see if you can refactor old elements / code before piling more on top. Adding more styles may fix the problem but will more than likely create others. Keep it simple stupid!
+
+
+### Mixin and Variable Ideas
 
 - Animations
 
@@ -47,58 +192,3 @@ An ever expanding CSS guideline. There aren't enough of these already right?
 - Resets
 
 - zindex
-
-
-## Basic Example:
-
-```
-/*------------------------------------*\
-    $CONTENTS
-\*------------------------------------*/
-/**
- * CONTENTS............You’re reading it!
- * RESET...............Set our reset defaults
- * ELEMENTS............Configure our element defaults
- */
-
-
-
-
-/*------------------------------------*\
-    $RESET
-\*------------------------------------*/
-reset-box-model()
-    border: 0
-    margin: 0
-    padding: 0
-    outline: 0
-
-/**
- * This comment explains what this specific
- * component will do and where it should be used.
- * Detailed comments are great!
- */
-.super-reset-modal
-    text-transform: uppercase
-
-
-
-
-/*------------------------------------*\
-    $ELEMENTS
-\*------------------------------------*/
-.widget
-    background-color: #C0FFEE
-    border: 1px solid #BADA55
-    border-radius: sRadius
-    color: #f8f8f8
-    display: inline-block
-    fontsize(18)
-    padding: 10px
-
-    /*h3*/.heading
-        background-color: #ffffff
-        color: #000000
-        padding: 10px
-
-```
