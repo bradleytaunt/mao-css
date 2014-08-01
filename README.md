@@ -10,7 +10,7 @@ An ever expanding CSS guideline. There aren't enough of these already right?
 
 - [Never Use IDs](#never-use-ids)
 
-- [!important Tags](#!important-tags)
+- [Important Tags](#important-tags)
 
 - [No Shorthand](#no-shorthand)
 
@@ -78,7 +78,7 @@ Example:
 ### Never Use IDs
 Goes without saying - stick to classes. This avoids super-specific selectors.
 
-### !important Tags
+### Important Tags
 Use `!important` tags on helper classes only (think of them as *trump* rules). This also avoids super-specific selectors.
 
 ### No Shorthand
