@@ -2,7 +2,7 @@
 
 An ever expanding CSS guideline. There aren't enough of these already right?
 
-## All stylus files must have follow the guidelines:
+## All files must have follow the guidelines:
 
 - Table of contents
 
