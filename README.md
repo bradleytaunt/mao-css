@@ -1,10 +1,8 @@
-## Mao CSS Guidelines
-
-===
+# Mao CSS Guidelines
 
 An ever expanding CSS guideline. There aren't enough of these already right?
 
-#### All stylus files must have follow the guidelines:
+## All stylus files must have follow the guidelines:
 
 - Table of contents
 
@@ -32,7 +30,7 @@ An ever expanding CSS guideline. There aren't enough of these already right?
 - Always see if you can refactor before adding a pile-on solution
 
 
-#### Key variables / mixins:
+## Key variables / mixins:
 
 - Animations
 
@@ -51,7 +49,7 @@ An ever expanding CSS guideline. There aren't enough of these already right?
 - zindex
 
 
-#### Basic Example:
+## Basic Example:
 
 ```
 /*------------------------------------*\
